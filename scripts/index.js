@@ -68,12 +68,12 @@ check.addEventListener("change", () => {
     }
 })
 
-button.addEventListener("click", (e) => {
-    e.preventDefault();
-    const prezzoFinale = calcolaPrezzo();
+button.addEventListener("click", () => {
 
-    document.querySelector('#ticket').innerHTML =
-        `<h3 class="text-center text-light mt-2 pt-2 ">preventino</h3>
+    const prezzoFinale = calcolaPrezzo();
+    if (prezzoFinale != "NaN€") {
+        document.querySelector('#ticket').innerHTML =
+            `<h3 class="text-center text-light mt-2 pt-2 ">preventino</h3>
         <hr class="text-light">
         <div class="row mb-2">
             <h4 class="text-light mb-5"> Dettaglio Passeggeri</h4>
@@ -83,12 +83,12 @@ button.addEventListener("click", (e) => {
             <div class="col-md-3 col-12 text-light">Origine: <span class="detali-ticket"> ${origine.value.toUpperCase()}</span></div>
             <div class="col-md-3 col-12 text-light mb-3">Destinazione: <span class="detali-ticket"> ${destinazione.value.toUpperCase()}</span></div>
             <hr class="text-light mt-2">
-
-        </div>
-        <div class="row">
+            </div>
+            <div class="row">
             <div class="col-4 text-warning pb-3">
-                <h4>Totale:${prezzoFinale} </h4>
+            <h4>Totale:${prezzoFinale} </h4>
             </div>
         </div> `;
-    ticket.classList.add('show');
+        ticket.classList.add('show');
+    }
 });
