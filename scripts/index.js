@@ -2,7 +2,8 @@ const origine = document.querySelector('#origine');
 const destinazione = document.querySelector('#destinazione');
 const eta = document.querySelector('#age');
 const button = document.querySelector('#btn');
-
+const nome = document.querySelector('#name');
+const cognome = document.querySelector('#cognome');
 for (let i = 4; i <= 110; i++) {
     eta.innerHTML += `<option value="${i}">${i}</option>`;
 }
@@ -56,5 +57,23 @@ const calcolaPrezzo = () => {
 
 button.addEventListener("click", (e) => {
     e.preventDefault(); 
-    calcolaPrezzo();
+    const prezzoFinale = calcolaPrezzo();
+
+    document.querySelector('#ticket').innerHTML =
+    `<h1 class="text-center text-light">preventino</h1>
+        <hr class="text-light">
+        <div class="row mb-2">
+            <h2 class="text-light"> Dettaglio Passeggeri</h2>
+            <div class="col-3 text-light">nome: ${nome.value.toUpperCase()}</div>
+            <div class="col-3 text-light">cognome: ${cognome.value.toUpperCase()}</div>
+            <div class="col-3 text-light">Origine: ${origine.value.toUpperCase()}</div>
+            <div class="col-3 text-light">Destinazione: ${destinazione.value.toUpperCase()}</div>
+            <hr class="text-light mt-2">
+
+        </div>
+        <div class="row">
+            <div class="col-4 text-light pb-3">
+                <h4>Totale:${prezzoFinale} </h4>
+            </div>
+        </div> `;
 });
