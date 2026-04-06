@@ -19,7 +19,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#"><img
+                <a class="navbar-brand p-1" href="#"><img
                         src="./images/fast-train-llogo-design-high-speed-rail-icon-vector-illustration-fast-train-llogo-design-high-speed-rail-silhouette-icon-vector-291958535.webp"
                         alt="" class="img-brand"></a>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -43,12 +43,29 @@
 
     <div class="wallpaper text-center">
         <div class="card-base ">
-            <form action="">
-                <div class="row d-flex flex-column gap-3">
-                    <div class="d-flex gap-2 justify-content-around flex-column flex-md-row">
-                        <input type="text" placeholder="Nome" id="name" class="w-100 rounded-2 border-1">
-                         <input type="text" placeholder="Cognome" id="cognome" class="w-100 rounded-2 border-1">
-                        <select name="" id="origine" class="w-100 rounded-2 border-1">
+            <form action="" class="d-flex flex-column gap-2 form">
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <input type="text" placeholder="Nome" id="name" class="w-100 rounded-2 border-1 form-control" required>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <input type="text" placeholder="Cognome" id="cognome"
+                            class="w-100 rounded-2 border-1 form-control" required>
+                    </div>
+                    <div class="col-12 col-md-1">
+                        <select name="" id="age" class="w-100 rounded-2 border-1 form-control" required>
+                            <option value="-">Età</option>
+                        </select>
+                    </div>
+                    <div class="col-5 d-md-block d-none text-start">
+                        <p>Se hai meno di <span class="fw-bold">18 anni</span>, ricevi uno sconto del <span
+                                class="fw-bold">20%</span>, mentre se hai più di <span class="fw-bold">65 anni </span>,
+                            ricevi uno sconto del <span class="fw-bold">40%</span> .</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <select name="" id="origine" class="w-100 rounded-2 border-1 form-control"required>
                             <option value="-">Origine</option>
                             <option value="milano">Milano</option>
                             <option value="roma">Roma</option>
@@ -57,7 +74,9 @@
                             <option value="torino">Torino</option>
                             <option value="venezia">Venezia</option>
                         </select>
-                        <select name="" id="destinazione" class="w-100 rounded-2 border-1">
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <select name="" id="destinazione" class="w-100 rounded-2 border-1 form-control" required>
                             <option value="-">Destinazione</option>
                             <option value="milano">Milano</option>
                             <option value="roma">Roma</option>
@@ -66,21 +85,33 @@
                             <option value="torino">Torino</option>
                             <option value="venezia">Venezia</option>
                         </select>
-                        <select name="" id="age" class="w-100 rounded-2 border-1">
-                            <option value="-">Età</option>
-                        </select>
+
                     </div>
+                    <div class="col-12 col-md-2"><input type="date" class="form-control col-12 col-md-4" required></div>
+                    <div class="col-12 col-md-2"><input type="date" class="form-control col-12 col-md-4"  id="date-torna" disabled></div>
+                    <div class="col-12 col-md-2 fw-bold mt-2"><input type="checkbox" id="check"> Andata e Ritorno</div>
+
                 </div>
+
                 <div>
-                    <button id="btn" class="btn btn-warning mt-3">Calcola Prezzo</button>
+                    <button id="btn" class="btn btn-warning border-black mt-3">Calcola Prezzo</button>
                 </div>
             </form>
         </div>
     </div>
 
 
-    <div class="container bg-black mt-1" id="ticket"> 
-        
+    <div class="container bg-black mt-3 rounded-3 mx-auto m-2 preventivo-box" id="ticket"> </div>
+    <hr>
+    <div class="container text-center mt-3">
+        <div class="row ">
+            <div class="col-2 align-content-center fw-bold"><p>Paga in sicuro con :</p></div>
+            <div class="col-2"> <img src="./images/apple-pay.png" alt="" class="pagamenti-logo"></div>
+            <div class="col-2"><img src="./images/card.png" alt="" class="pagamenti-logo"></div>
+            <div class="col-2"><img src="./images/paypal.png" alt="" class="pagamenti-logo"></div>
+            <div class="col-2"><img src="./images/symbols.png" alt="" class="pagamenti-logo"></div>
+            <div class="col-2"><img src="./images/visa.png" alt="" class="pagamenti-logo"></div>
+        </div>
     </div>
 
 

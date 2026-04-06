@@ -4,6 +4,9 @@ const eta = document.querySelector('#age');
 const button = document.querySelector('#btn');
 const nome = document.querySelector('#name');
 const cognome = document.querySelector('#cognome');
+const check = document.querySelector('#check');
+const ticket = document.querySelector('#ticket');
+const dateTorna = document.querySelector('#date-torna');
 for (let i = 4; i <= 110; i++) {
     eta.innerHTML += `<option value="${i}">${i}</option>`;
 }
@@ -44,9 +47,11 @@ const calcolaPrezzo = () => {
     let prezzo = calcoDistanza() * 0.21;
 
     if (eta.value < 18) {
-        prezzo = prezzo * 0.8;   // sconto 20%
+        prezzo = prezzo * 0.8;
     } else if (eta.value > 65) {
-        prezzo = prezzo * 0.6;   // sconto 40%
+        prezzo = prezzo * 0.6;
+    } else if (check.checked) {
+        prezzo = prezzo * 2;
     }
 
     const prezzoFinale = `${prezzo.toFixed(2)}€`;
@@ -55,25 +60,35 @@ const calcolaPrezzo = () => {
 
 }
 
+check.addEventListener("change", () => {
+    if (check.checked) {
+        dateTorna.disabled = false;
+    } else {
+        dateTorna.disabled = true;
+    }
+})
+
 button.addEventListener("click", (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const prezzoFinale = calcolaPrezzo();
 
     document.querySelector('#ticket').innerHTML =
-    `<h1 class="text-center text-light">preventino</h1>
+        `<h3 class="text-center text-light mt-2 pt-2 ">preventino</h3>
         <hr class="text-light">
         <div class="row mb-2">
-            <h2 class="text-light"> Dettaglio Passeggeri</h2>
-            <div class="col-3 text-light">nome: ${nome.value.toUpperCase()}</div>
-            <div class="col-3 text-light">cognome: ${cognome.value.toUpperCase()}</div>
-            <div class="col-3 text-light">Origine: ${origine.value.toUpperCase()}</div>
-            <div class="col-3 text-light">Destinazione: ${destinazione.value.toUpperCase()}</div>
+            <h4 class="text-light mb-5"> Dettaglio Passeggeri</h4>
+            <div class="col-md-3 col-12 text-light">Nome: <span class="detali-ticket" > ${nome.value.toUpperCase()} </span></div>
+            <div class="col-md-3 col-12 text-light">Cognome: <span class="detali-ticket">
+            ${cognome.value.toUpperCase()}</span></div>
+            <div class="col-md-3 col-12 text-light">Origine: <span class="detali-ticket"> ${origine.value.toUpperCase()}</span></div>
+            <div class="col-md-3 col-12 text-light mb-3">Destinazione: <span class="detali-ticket"> ${destinazione.value.toUpperCase()}</span></div>
             <hr class="text-light mt-2">
 
         </div>
         <div class="row">
-            <div class="col-4 text-light pb-3">
+            <div class="col-4 text-warning pb-3">
                 <h4>Totale:${prezzoFinale} </h4>
             </div>
         </div> `;
+    ticket.classList.add('show');
 });
