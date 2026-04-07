@@ -48,3 +48,6 @@ body{
 .detali-ticket{
     color:rgb(244, 193, 122); ;
 }
+.font-size{
+    font-size: clamp(5px, 1.1vw, 20px);
+}
