@@ -75,7 +75,8 @@ check.addEventListener("change", () => {
 })
 
 // Evento click sul pulsante per generare il biglietto
-button.addEventListener("click", () => {
+button.addEventListener("click", (e) => {
+    e.preventDefault(); // Previene il comportamento predefinito del form
 
     const prezzoFinale = calcolaPrezzo(); // Calcola il prezzo finale
 
